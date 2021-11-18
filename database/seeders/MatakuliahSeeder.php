@@ -13,6 +13,14 @@ class MatakuliahSeeder extends Seeder
      */
     public function run()
     {
-        //
+         \Schema::disableForeignKeyConstraints();
+        \DB::table("tblmatakuliah")->truncate();
+        \App\Models\Matakuliah::insert([
+            ["Nama" => "Desain Grafis"],
+            ["Nama" => "Matriks"],
+            ["Nama" => "Pemrograman visual"],
+            
+        ]);
+        \Schema::enableForeignKeyConstraints();
     }
 }
